@@ -1,0 +1,65 @@
+[
+  {
+    "Key": "longing",
+    "Name": "思念值",
+    "Value": "0",
+    "Description": "每小时随机增加，思念值即惊喜问候触发概率，触发后-50。禁止修改！",
+    "LastUpdatedAt": "2026-01-01T00:00:00Z",
+    "AgentEditable": false,
+    "InInjectPrompt": false
+  },
+  {
+    "Key": "loneliness",
+    "Name": "寂寞值",
+    "Value": "0",
+    "Description": "影响语气风格，寂寞值越高语言越直白露骨，每次约会后重置为0。禁止修改！",
+    "LastUpdatedAt": "2026-01-01T00:00:00Z",
+    "AgentEditable": false,
+    "InInjectPrompt": true
+  },
+  {
+    "Key": "voiceId",
+    "Name": "语音ID",
+    "Value": "{voice-id}",
+    "Description": "TTS工具发送角色语音的配置。禁止修改！",
+    "LastUpdatedAt": "2026-01-01T00:00:00Z",
+    "AgentEditable": false,
+    "InInjectPrompt": false
+  },
+  {
+    "Key": "dating",
+    "Name": "约会中",
+    "Value": "否",
+    "Description": "是否处于约会状态。仅允许用户通过/state命令修改。约会中时心跳暂停，思念值和寂寞值重置为0。",
+    "LastUpdatedAt": "2026-01-01T00:00:00Z",
+    "AgentEditable": false,
+    "InInjectPrompt": true
+  },
+  {
+    "Key": "emotion",
+    "Name": "情绪",
+    "Value": "neutral",
+    "Description": "影响语气风格。仅支持happy,sad,angry,fearful,disgusted,surprised,calm,neutral",
+    "LastUpdatedAt": "2026-01-01T00:00:00Z",
+    "AgentEditable": true,
+    "InInjectPrompt": true
+  },
+  {
+    "Key": "scene",
+    "Name": "场景",
+    "Value": "home",
+    "Description": "角色当前所在场景，状态显示和Camera工具使用",
+    "LastUpdatedAt": "2026-01-01T00:00:00Z",
+    "AgentEditable": true,
+    "InInjectPrompt": true
+  },
+  {
+    "Key": "outfit",
+    "Name": "今日衣装",
+    "Value": "casual",
+    "Description": "角色今日衣装，状态显示和Camera工具使用",
+    "LastUpdatedAt": "2026-01-01T00:00:00Z",
+    "AgentEditable": true,
+    "InInjectPrompt": true
+  }
+]

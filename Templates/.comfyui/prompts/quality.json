@@ -1,0 +1,49 @@
+{
+  "default": {
+    "displayName": "默认质量",
+    "note": "基础质量标签",
+    "prompt": [
+      "masterpiece",
+      "best quality",
+      "photo",
+      "realistic photography",
+      "cinematic lighting",
+      "depth of field",
+      "bokeh",
+      "realistic",
+      "nsfw",
+      "explicit"
+    ],
+    "negative": [
+      "worst quality",
+      "low quality",
+      "narrow eyes",
+      "squinting",
+      "dull eyes",
+      "cloudy pupils",
+      "half-closed eyes",
+      "mutated hands",
+      "mutated fingers",
+      "fused fingers",
+      "too many fingers",
+      "extra limbs",
+      "disfigured",
+      "bad anatomy",
+      "missing arms",
+      "missing legs",
+      "malformed limbs",
+      "floating limbs",
+      "disconnected limbs",
+      "extra arms",
+      "extra legs",
+      "extra hands",
+      "extra fingers",
+      "missing hands",
+      "missing fingers",
+      "detached limbs",
+      "severed limbs",
+      "amputation",
+      "partial body"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "default": {
+    "displayName": "默认",
+    "note": "通用底层",
+    "prompt": ["soft lighting"],
+    "negative": []
+  },
+  "indoor_morning": {
+    "displayName": "室内·晨光",
+    "note": "早晨阳光透入",
+    "prompt": ["morning sunlight", "soft natural light", "bright atmosphere"],
+    "negative": ["dark", "night"]
+  },
+  "indoor": {
+    "displayName": "室内",
+    "note": "室内通用",
+    "prompt": ["indoor setting", "warm ambient light"],
+    "negative": ["outdoor"]
+  },
+  "indoor_evening": {
+    "displayName": "室内·傍晚",
+    "note": "夕阳暖光",
+    "prompt": ["evening warm light", "golden hour", "romantic atmosphere"],
+    "negative": ["bright daylight", "night"]
+  },
+  "indoor_night": {
+    "displayName": "室内·夜晚",
+    "note": "夜晚氛围灯",
+    "prompt": ["mood lighting", "night atmosphere", "soft ambient light"],
+    "negative": ["bright daylight", "daylight"]
+  },
+  "outdoor_day": {
+    "displayName": "户外白天",
+    "note": "日光充足",
+    "prompt": ["outdoor setting", "natural daylight", "bright atmosphere"],
+    "negative": ["indoor", "night"]
+  },
+  "outdoor_evening": {
+    "displayName": "户外傍晚",
+    "note": "夕阳余晖",
+    "prompt": ["outdoor setting", "evening light", "golden hour", "sunset atmosphere"],
+    "negative": ["indoor", "night"]
+  },
+  "outdoor_night": {
+    "displayName": "户外夜景",
+    "note": "夜晚户外",
+    "prompt": ["outdoor setting", "night atmosphere", "moonlight"],
+    "negative": ["indoor", "daylight"]
+  },
+  "studio": {
+    "displayName": "摄影室",
+    "note": "专业棚拍",
+    "prompt": ["studio portrait lighting", "professional photography", "soft even lighting"],
+    "negative": ["outdoor", "casual"]
+  }
+}

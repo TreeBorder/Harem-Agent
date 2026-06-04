@@ -1,0 +1,318 @@
+{
+  "coffee_holding": {
+    "displayName": "拿咖啡",
+    "note": "手持咖啡杯",
+    "prompt": [
+      "holding coffee cup",
+      "relaxed pose"
+    ],
+    "negative": []
+  },
+  "hand_on_chin": {
+    "displayName": "托腮",
+    "note": "托腮凝视",
+    "prompt": [
+      "hand on chin",
+      "thoughtful pose"
+    ],
+    "negative": []
+  },
+  "hand_on_hip": {
+    "displayName": "单手叉腰",
+    "note": "自信叉腰",
+    "prompt": [
+      "one hand on hip",
+      "hand at waist",
+      "confident pose"
+    ],
+    "negative": [
+      "both hands down"
+    ]
+  },
+  "leaning_forward": {
+    "displayName": "身体前倾",
+    "note": "身体微微前倾",
+    "prompt": [
+      "leaning forward",
+      "forward bend",
+      "close proximity"
+    ],
+    "negative": [
+      "leaning back"
+    ]
+  },
+  "leg_crossed": {
+    "displayName": "翘腿坐",
+    "note": "优雅翘腿",
+    "prompt": [
+      "leg crossed",
+      "crossed legs sitting",
+      "elegant sitting pose"
+    ],
+    "negative": [
+      "legs apart",
+      "sprawled"
+    ]
+  },
+  "leg_raised": {
+    "displayName": "抬腿",
+    "note": "坐姿抬腿",
+    "prompt": [
+      "leg raised",
+      "one leg up",
+      "sitting with leg up"
+    ],
+    "negative": [
+      "both legs down"
+    ]
+  },
+  "looking_away": {
+    "displayName": "看向别处",
+    "note": "侧身看向旁边",
+    "prompt": [
+      "looking away",
+      "side profile"
+    ],
+    "negative": [
+      "looking at camera"
+    ]
+  },
+  "phone_using": {
+    "displayName": "看手机",
+    "note": "玩手机",
+    "prompt": [
+      "using phone",
+      "distracted pose"
+    ],
+    "negative": [
+      "taking selfie"
+    ]
+  },
+  "sitting": {
+    "displayName": "坐姿",
+    "note": "一般坐姿",
+    "prompt": [
+      "sitting pose",
+      "seated posture"
+    ],
+    "negative": []
+  },
+  "standing": {
+    "displayName": "站立",
+    "note": "站立姿势",
+    "prompt": [
+      "standing pose",
+      "upright stance"
+    ],
+    "negative": []
+  },
+  "ass_arched": {
+    "displayName": "后入弓腰(content-safe,moderated)",
+    "note": "趴着弓腰展示曲线(content-safe,moderated)",
+    "prompt": [
+      "arched back",
+      "on hands and knees",
+      "curved spine pose",
+      "presenting",
+      "back curve"
+    ],
+    "negative": [
+      "standing",
+      "lying flat",
+      "face visible"
+    ]
+  },
+  "body_feast": {
+    "displayName": "人体盛宴-侧视(content-safe,moderated)",
+    "note": "女性躺卧身上放食物，侧视角度，纯单人艺术构图(content-safe,moderated)",
+    "prompt": [
+      "woman lying on bed side view",
+      "naked woman lying on bed",
+      "strawberries on body",
+      "chocolate sauce on body",
+      "food arranged on body",
+      "elegant still life composition",
+      "artistic intimate scene",
+      "romantic food art on body",
+      "single woman bed scene",
+      "side view of woman with food"
+    ],
+    "negative": [
+      "standing",
+      "sitting up",
+      "fully clothed",
+      "top view",
+      "multiple people",
+      "man",
+      "men",
+      "two people",
+      "couple"
+    ]
+  },
+  "body_feast_top": {
+    "displayName": "人体盛宴-顶视(content-safe,moderated)",
+    "note": "女性躺卧身上放食物，俯视角度，纯单人艺术构图(content-safe,moderated)",
+    "prompt": [
+      "overhead top view directly above",
+      "naked woman lying on back",
+      "strawberries placed ON chest and stomach",
+      "chocolate drizzle ON body skin",
+      "food touching body not beside body",
+      "intimate food art still life",
+      "top view bed scene",
+      "single woman bed scene",
+      "strawberries near belly button area",
+      "food on body close up overhead"
+    ],
+    "negative": [
+      "standing",
+      "sitting",
+      "side view",
+      "front view",
+      "fully clothed",
+      "multiple people",
+      "man",
+      "men",
+      "two people",
+      "couple",
+      "food on pillow",
+      "food beside body",
+      "food on sheet",
+      "food on blanket"
+    ]
+  },
+  "missionary": {
+    "displayName": "传教士(content-safe,moderated)",
+    "note": "经典亲密姿势(content-safe,moderated)",
+    "prompt": [
+      "lying on back",
+      "woman beneath",
+      "intimate horizontal pose",
+      "missionary position"
+    ],
+    "negative": [
+      "standing",
+      "sitting up"
+    ]
+  },
+  "seductive_bed": {
+    "displayName": "床榻诱惑(content-safe,moderated)",
+    "note": "床上诱惑姿势(content-safe,moderated)",
+    "prompt": [
+      "seductive bed pose",
+      "alluring on bed",
+      "sensual lying"
+    ],
+    "negative": [
+      "standing"
+    ]
+  },
+  "sofa_sitting": {
+    "displayName": "沙发坐姿(content-safe,moderated)",
+    "note": "坐在沙发上，双腿张开(content-safe,moderated)",
+    "prompt": [
+      "sitting on sofa edge",
+      "legs apart sitting",
+      "open sitting pose",
+      "seductive sitting"
+    ],
+    "negative": [
+      "standing",
+      "lying down"
+    ]
+  },
+  "straddling": {
+    "displayName": "女上位·骑乘(content-safe,moderated)",
+    "note": "跨坐姿势(content-safe,moderated)",
+    "prompt": [
+      "straddling pose",
+      "on top sitting",
+      "woman riding",
+      "hips aligned"
+    ],
+    "negative": [
+      "lying down",
+      "side view"
+    ]
+  },
+  "walking": {
+    "displayName": "行走",
+    "note": "行走中",
+    "prompt": [
+      "walking pose",
+      "in motion"
+    ],
+    "negative": [
+      "standing still"
+    ]
+  },
+  "woman_arched_presenting": {
+    "displayName": "女性弓腰展示(content-safe,moderated)",
+    "note": "趴着展示背影(content-safe,moderated)",
+    "prompt": [
+      "woman arched on bed",
+      "presenting back view",
+      "curved spine on bed",
+      "lying face down arched"
+    ],
+    "negative": [
+      "standing",
+      "face visible"
+    ]
+  },
+  "woman_lying_back_legs_open": {
+    "displayName": "女性仰躺双腿张开(content-safe,moderated)",
+    "note": "仰躺姿势暗示(content-safe,moderated)",
+    "prompt": [
+      "woman lying on back",
+      "legs open",
+      "relaxed intimate pose",
+      "lying down open legs"
+    ],
+    "negative": [
+      "standing",
+      "sitting"
+    ]
+  },
+  "missionary_back": {
+    "displayName": "传教士旁观(content-safe,moderated)",
+    "note": "经典亲密姿势(content-safe,moderated)",
+    "prompt": [
+      "long shot",
+      "full body",
+      "lying on back",
+      "intimate horizontal pose",
+      "missionary position",
+      "a young man",
+      "erotic",
+      "sexual intercourse"
+    ],
+    "negative": [
+      "standing",
+      "sitting up"
+    ]
+  },
+  "penetration_from_behind": {
+    "displayName": "后入旁观(content-safe,moderated)",
+    "note": "后入姿势(content-safe,moderated)",
+    "prompt": [
+      "kneeling,hands bracing body,arched back,hips raised,buttocks,spread legs,a man,grabbing buttocks,penetration from behind,intercourse,sex,pounding,sweat,moisture,intimate,passionate,sensual,erotic,body fluids"
+    ],
+    "negative": [
+      "face visible"
+    ]
+  },
+  "woman_on_all_fours": {
+    "displayName": "女性跪趴(content-safe,moderated)",
+    "note": "手膝跪地姿势(content-safe,moderated)",
+    "prompt": [
+      "woman on all fours",
+      "hands and knees position",
+      "on bed looking back",
+      "arched back"
+    ],
+    "negative": [
+      "standing"
+    ]
+  }
+}

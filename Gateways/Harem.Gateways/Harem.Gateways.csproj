@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>harem</AssemblyName>
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <IncludeAllContentForSelfExtractor>true</IncludeAllContentForSelfExtractor>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Contracts\Harem.Contracts.Configurations\Harem.Contracts.Configurations.csproj" />
+      <ProjectReference Include="..\..\Contracts\Harem.Contracts.Domain\Harem.Contracts.Domain.csproj" />
+      <ProjectReference Include="..\..\Chats\Harem.Chats.Mattermost\Harem.Chats.Mattermost.csproj" />
+      <ProjectReference Include="..\..\Chats\Harem.Chats.SignalR\Harem.Chats.SignalR.csproj" />
+      <ProjectReference Include="..\..\Web\Harem.Web\Harem.Web.csproj" />
+      <ProjectReference Include="..\..\Contracts\Harem.Contracts.Dtos\Harem.Contracts.Dtos.csproj" />
+      <ProjectReference Include="..\..\Data\Harem.Data.Vector\Harem.Data.Vector.csproj" />
+
+      <ProjectReference Include="..\..\Protocol\Harem.Protocol.ComfyUI\Harem.Protocol.ComfyUI.csproj" />
+      <ProjectReference Include="..\..\Protocol\Harem.Protocol.Ollama\Harem.Protocol.Ollama.csproj" />
+      <ProjectReference Include="..\..\Services\Harem.Services.Abstractions\Harem.Services.Abstractions.csproj" />
+      <ProjectReference Include="..\..\Services\Harem.Services.Agents\Harem.Services.Agents.csproj" />
+      <ProjectReference Include="..\..\Services\Harem.Services.Channels\Harem.Services.Channels.csproj" />
+      <ProjectReference Include="..\..\Services\Harem.Services.Handlers\Harem.Services.Handlers.csproj" />
+      <ProjectReference Include="..\..\Services\Harem.Services.Jobs\Harem.Services.Jobs.csproj" />
+      <ProjectReference Include="..\..\Services\Harem.Services.Tools\Harem.Services.Tools.csproj" />
+      <ProjectReference Include="..\..\Works\Harem.Works\Harem.Works.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" Version="10.0.8" />
+      <PackageReference Include="Quartz" Version="3.18.1" />
+      <PackageReference Include="Quartz.Extensions.Hosting" Version="3.18.1" />
+    </ItemGroup>
+
+</Project>

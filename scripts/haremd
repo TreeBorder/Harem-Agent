@@ -1,0 +1,427 @@
+#!/usr/bin/env bash
+# haremd - Harem Multi-Agent Service Manager
+# 管理多个 Harem 智能体守护进程
+#
+# 用法:
+#   haremd install <name> --Key <key> --Workspace <path>  安装智能体为系统服务
+#   haremd uninstall <name>                               卸载智能体服务
+#   haremd start <name>                                   启动智能体
+#   haremd stop <name>                                    停止智能体
+#   haremd restart <name>                                 重启智能体
+#   haremd status [<name>]                                查看服务状态
+#   haremd logs <name>                                    查看日志
+#   haremd list                                           列出所有已安装的智能体
+
+set -euo pipefail
+
+# ===== 配置 =====
+DOTNET_APP="harem"
+
+# 检测安装路径
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+INSTALL_DIR="${HAREM_INSTALL_DIR:-$SCRIPT_DIR}"
+BIN_PATH="$INSTALL_DIR/$DOTNET_APP"
+
+# 检测操作系统
+detect_os() {
+    if [[ "$(uname)" == "Darwin" ]]; then
+        echo "macos"
+    elif [[ -d /etc/systemd/system ]] || command -v systemctl &>/dev/null; then
+        echo "linux"
+    else
+        echo "unknown"
+    fi
+}
+
+OS=$(detect_os)
+
+# 生成服务名（智能体名 → 服务标识）
+service_name() { echo "harem-$1"; }
+launchd_label() { echo "com.harem.agent.$1"; }
+
+# ===== Linux (systemd) =====
+linux_service_file() { echo "/etc/systemd/system/$(service_name "$1").service"; }
+linux_env_file() { echo "/etc/default/$(service_name "$1")"; }
+
+install_linux() {
+    local name="$1" key="$2" workspace="$3"
+    local svc_file env_file unit_name
+    unit_name="$(service_name "$name")"
+    svc_file="$(linux_service_file "$name")"
+    env_file="$(linux_env_file "$name")"
+
+    echo "🔧 Installing agent [${name}] as systemd service..."
+
+    sudo tee "$svc_file" > /dev/null <<EOF
+[Unit]
+Description=Harem Agent: ${name}
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=${BIN_PATH}
+EnvironmentFile=${env_file}
+WorkingDirectory=${INSTALL_DIR}
+Restart=on-failure
+RestartSec=10
+SyslogIdentifier=${unit_name}
+
+# 安全限制
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=${workspace}
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    sudo tee "$env_file" > /dev/null <<EOF
+# Harem Agent: ${name}
+HAREM_KEY=${key}
+HAREM_WORKSPACE=${workspace}
+DOTNET_ENVIRONMENT=Production
+EOF
+
+    sudo chmod 600 "$env_file"
+    sudo systemctl daemon-reload
+    sudo systemctl enable "$unit_name"
+
+    echo "✅ Agent [${name}] installed. Use 'haremd start ${name}' to start."
+}
+
+uninstall_linux() {
+    local name="$1"
+    local unit_name svc_file env_file
+    unit_name="$(service_name "$name")"
+    svc_file="$(linux_service_file "$name")"
+    env_file="$(linux_env_file "$name")"
+
+    echo "🔧 Uninstalling agent [${name}]..."
+    sudo systemctl stop "$unit_name" 2>/dev/null || true
+    sudo systemctl disable "$unit_name" 2>/dev/null || true
+    sudo rm -f "$svc_file" "$env_file"
+    sudo systemctl daemon-reload
+    echo "✅ Agent [${name}] uninstalled."
+}
+
+start_linux() {
+    local name="$1"
+    sudo systemctl start "$(service_name "$name")"
+    echo "✅ Agent [${name}] started."
+}
+
+stop_linux() {
+    local name="$1"
+    sudo systemctl stop "$(service_name "$name")"
+    echo "✅ Agent [${name}] stopped."
+}
+
+restart_linux() {
+    local name="$1"
+    sudo systemctl restart "$(service_name "$name")"
+    echo "✅ Agent [${name}] restarted."
+}
+
+status_linux() {
+    local name="${1:-}"
+    if [[ -n "$name" ]]; then
+        sudo systemctl status "$(service_name "$name")" --no-pager || true
+    else
+        sudo systemctl list-units 'harem-*' --no-pager || true
+    fi
+}
+
+logs_linux() {
+    local name="$1"
+    sudo journalctl -u "$(service_name "$name")" -f
+}
+
+list_linux() {
+    echo "已安装的 Harem 智能体:"
+    for f in /etc/systemd/system/harem-*.service; do
+        [[ -f "$f" ]] || continue
+        local base unit_name
+        base="$(basename "$f" .service)"
+        unit_name="$base"
+        local active
+        active=$(sudo systemctl is-active "$unit_name" 2>/dev/null || echo "unknown")
+        local icon="🔴"
+        [[ "$active" == "active" ]] && icon="🟢"
+        # 提取智能体名（去掉 harem- 前缀）
+        local agent_name="${base#harem-}"
+        echo "  $icon ${agent_name} ($active)"
+    done
+}
+
+# ===== macOS (launchd) =====
+macos_plist_file() { echo "/Library/LaunchDaemons/$(launchd_label "$1").plist"; }
+macos_newsyslog_conf() { echo "/etc/newsyslog.d/$(launchd_label "$1").conf"; }
+
+install_macos() {
+    local name="$1" key="$2" workspace="$3"
+    local plist_file label
+    plist_file="$(macos_plist_file "$name")"
+    label="$(launchd_label "$name")"
+
+    echo "🔧 Installing agent [${name}] as launchd service..."
+
+    local log_path="${workspace}/.logs"
+    mkdir -p "$log_path"
+
+    sudo tee "$plist_file" > /dev/null <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>${label}</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>${BIN_PATH}</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HAREM_KEY</key>
+        <string>${key}</string>
+        <key>HAREM_WORKSPACE</key>
+        <string>${workspace}</string>
+        <key>DOTNET_ENVIRONMENT</key>
+        <string>Production</string>
+    </dict>
+    <key>WorkingDirectory</key>
+    <string>${INSTALL_DIR}</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>${log_path}/${name}.log</string>
+    <key>StandardErrorPath</key>
+    <string>${log_path}/${name}-error.log</string>
+    <key>SoftResourceLimits</key>
+    <dict>
+        <key>NumberOfFiles</key>
+        <integer>10240</integer>
+    </dict>
+</dict>
+</plist>
+EOF
+
+    # 先卸载旧服务（若已存在），再重新加载
+    sudo launchctl bootout "system/$label" 2>/dev/null || true
+    sudo launchctl bootstrap system/ "$plist_file"
+
+    # 安装 newsyslog 日志轮转配置
+    local newsyslog_conf
+    newsyslog_conf="$(macos_newsyslog_conf "$name")"
+    sudo tee "$newsyslog_conf" > /dev/null <<EOF2
+# logfilename                     [owner:group]  mode  count  size  when  flags  [/pid_file]  [sig_num]
+${log_path}/${name}.log            root:wheel     644   7      51200  *     J
+${log_path}/${name}-error.log      root:wheel     644   7      51200  *     J
+EOF2
+
+    echo "✅ Agent [${name}] installed and started."
+}
+
+uninstall_macos() {
+    local name="$1"
+    local plist_file label
+    plist_file="$(macos_plist_file "$name")"
+    label="$(launchd_label "$name")"
+
+    echo "🔧 Uninstalling agent [${name}]..."
+    sudo launchctl bootout "system/$label" 2>/dev/null || true
+    sudo rm -f "$plist_file" "$(macos_newsyslog_conf "$name")"
+    echo "✅ Agent [${name}] uninstalled."
+}
+
+start_macos() {
+    local name="$1"
+    local label plist_file
+    label="$(launchd_label "$name")"
+    plist_file="$(macos_plist_file "$name")"
+    # 若已加载则先 bootout 再 bootstrap
+    sudo launchctl bootout "system/$label" 2>/dev/null || true
+    sudo launchctl bootstrap system/ "$plist_file"
+    echo "✅ Agent [${name}] started."
+}
+
+stop_macos() {
+    local name="$1"
+    sudo launchctl bootout "system/$(launchd_label "$name")"
+    echo "✅ Agent [${name}] stopped."
+}
+
+restart_macos() {
+    local name="$1"
+    local plist_file label
+    plist_file="$(macos_plist_file "$name")"
+    label="$(launchd_label "$name")"
+    sudo launchctl bootout "system/$label" 2>/dev/null || true
+    sleep 1
+    sudo launchctl bootstrap system/ "$plist_file"
+    echo "✅ Agent [${name}] restarted."
+}
+
+status_macos() {
+    local name="${1:-}"
+    if [[ -n "$name" ]]; then
+        local label pid_state
+        label="$(launchd_label "$name")"
+        pid_state=$(sudo launchctl print "system/$label" 2>/dev/null | grep -E '^\s+pid' | awk '{print $2}' || true)
+        if [[ -n "$pid_state" && "$pid_state" != "0" ]]; then
+            echo "🟢 Agent [${name}] is running (PID: $pid_state)"
+        else
+            echo "🔴 Agent [${name}] is not running"
+        fi
+    else
+        # 列出所有
+        local found=0
+        for f in /Library/LaunchDaemons/com.harem.agent.*.plist; do
+            [[ -f "$f" ]] || continue
+            local base plist_label agent_name pid_state
+            base="$(basename "$f" .plist)"
+            plist_label="$base"
+            agent_name="${base#com.harem.agent.}"
+            pid_state=$(sudo launchctl print "system/$plist_label" 2>/dev/null | grep -E '^\s+pid' | awk '{print $2}' || true)
+            if [[ -n "$pid_state" && "$pid_state" != "0" ]]; then
+                echo "  🟢 ${agent_name} (PID: $pid_state)"
+            else
+                echo "  🔴 ${agent_name} (stopped)"
+            fi
+            found=1
+        done
+        [[ "$found" -eq 0 ]] && echo "没有已安装的智能体"
+    fi
+}
+
+logs_macos() {
+    local name="$1"
+    # 从 plist 推断 workspace（或用环境变量）
+    local plist_file label
+    plist_file="$(macos_plist_file "$name")"
+    if [[ -f "$plist_file" ]]; then
+        local log_path
+        log_path=$(sudo plutil -extract StandardOutPath raw "$plist_file" 2>/dev/null || echo "")
+        if [[ -n "$log_path" && -f "$log_path" ]]; then
+            tail -f "$log_path"
+            return
+        fi
+    fi
+    echo "❌ 找不到 Agent [${name}] 的日志文件"
+}
+
+list_macos() {
+    status_macos
+}
+
+# ===== 通用 =====
+print_usage() {
+    cat <<EOF
+Harem Multi-Agent Service Manager
+
+用法:
+  haremd install <name> --Key <key> --Workspace <path>  安装智能体为系统服务
+  haremd uninstall <name>                               卸载智能体服务
+  haremd start <name>                                   启动智能体
+  haremd stop <name>                                    停止智能体
+  haremd restart <name>                                 重启智能体
+  haremd status [<name>]                                查看状态（省略 name 则列出全部）
+  haremd logs <name>                                    查看日志
+  haremd list                                           列出所有已安装的智能体
+
+示例:
+  haremd install border --Key abc123 --Workspace /data/border
+  haremd install liuxiaopei --Key def456 --Workspace /data/liuxiaopei
+  haremd start border
+  haremd status
+  haremd logs border
+
+环境变量:
+  HAREM_INSTALL_DIR    安装目录 (默认: 脚本所在目录)
+
+当前平台: $OS
+EOF
+}
+
+# 解析 install 参数
+parse_install_args() {
+    local key=""
+    local workspace=""
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --Key) key="$2"; shift 2 ;;
+            --Workspace) workspace="$2"; shift 2 ;;
+            *) echo "❌ 未知参数: $1"; exit 1 ;;
+        esac
+    done
+
+    if [[ -z "$key" ]]; then
+        echo "❌ 缺少 --Key 参数"
+        exit 1
+    fi
+    if [[ -z "$workspace" ]]; then
+        echo "❌ 缺少 --Workspace 参数"
+        exit 1
+    fi
+
+    echo "$key" "$workspace"
+}
+
+# 验证智能体名称（只允许字母数字和下划线短横线）
+validate_name() {
+    local name="$1"
+    if [[ ! "$name" =~ ^[a-zA-Z0-9_-]+$ ]]; then
+        echo "❌ 智能体名称只允许字母、数字、下划线和短横线: $name"
+        exit 1
+    fi
+}
+
+# 主入口
+cmd="${1:-help}"
+shift 2>/dev/null || true
+
+case "$cmd" in
+    install)
+        [[ $# -lt 1 ]] && { echo "❌ 请指定智能体名称"; print_usage; exit 1; }
+        name="$1"; shift
+        validate_name "$name"
+        read -r key workspace <<< "$(parse_install_args "$@")"
+        "install_${OS}" "$name" "$key" "$workspace"
+        ;;
+    uninstall)
+        [[ $# -lt 1 ]] && { echo "❌ 请指定智能体名称"; exit 1; }
+        validate_name "$1"
+        "uninstall_${OS}" "$1"
+        ;;
+    start)
+        [[ $# -lt 1 ]] && { echo "❌ 请指定智能体名称"; exit 1; }
+        validate_name "$1"
+        "start_${OS}" "$1"
+        ;;
+    stop)
+        [[ $# -lt 1 ]] && { echo "❌ 请指定智能体名称"; exit 1; }
+        validate_name "$1"
+        "stop_${OS}" "$1"
+        ;;
+    restart)
+        [[ $# -lt 1 ]] && { echo "❌ 请指定智能体名称"; exit 1; }
+        validate_name "$1"
+        "restart_${OS}" "$1"
+        ;;
+    status)
+        "status_${OS}" "${1:-}"
+        ;;
+    logs)
+        [[ $# -lt 1 ]] && { echo "❌ 请指定智能体名称"; exit 1; }
+        validate_name "$1"
+        "logs_${OS}" "$1"
+        ;;
+    list)
+        "list_${OS}"
+        ;;
+    help|--help|-h) print_usage ;;
+    *)         echo "❌ 未知命令: $cmd"; print_usage; exit 1 ;;
+esac

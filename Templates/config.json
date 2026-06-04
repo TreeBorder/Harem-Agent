@@ -1,0 +1,49 @@
+{
+  "Agent": {
+    "Id": "{agent-id}",
+    "Name": "{角色名}",
+    "DefaultModelKey": "Provider/Model",
+    "FallbackModels": [
+      "Provider/Model"
+    ],
+    "Chat": {
+      "Name": "mattermost",
+      "Type": "mattermost",
+      "ServerUrl": "https://mattermost.example.com",
+      "Token": "your-mattermost-bot-token"
+    },
+    "ModelProviders": [
+      {
+        "Name": "example-provider",
+        "BaseUrl": "https://api.example.com/v1",
+        "Protocol": "OpenAI",
+        "ApiKey": "sk-your-api-key",
+        "Models": [
+          {
+            "Name": "example-model",
+            "ContextTokens": 65536,
+            "ChatBehavior": {
+              "Temperature": 0.85,
+              "EnableStreaming": true
+            }
+          }
+        ]
+      }
+    ],
+    "ComfyUi": {
+      "BaseUrl": "https://comfyui.example.com"
+    },
+    "MiniMax": {
+      "ApiKey": "your-minimax-api-key"
+    },
+    "Ollama": {
+      "BaseUrl": "https://ollama.example.com",
+      "EmbeddingModel": "your-embedding-model",
+      "EmbeddingDimension": 1024
+    },
+    "WebSearch": {
+      "MmxPath": "/path/to/mmx",
+      "NodePath": "/path/to/node"
+    }
+  }
+}

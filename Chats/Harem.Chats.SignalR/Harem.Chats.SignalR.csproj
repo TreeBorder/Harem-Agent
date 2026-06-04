@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Contracts\Harem.Contracts.Configurations\Harem.Contracts.Configurations.csproj" />
+        <ProjectReference Include="..\..\Contracts\Harem.Contracts.Domain\Harem.Contracts.Domain.csproj" />
+        <ProjectReference Include="..\..\Services\Harem.Services.Abstractions\Harem.Services.Abstractions.csproj" />
+        <ProjectReference Include="..\..\Services\Harem.Services.Channels\Harem.Services.Channels.csproj" />
+    </ItemGroup>
+
+</Project>

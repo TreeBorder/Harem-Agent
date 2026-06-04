@@ -1,0 +1,212 @@
+{
+  "bedroom": {
+    "displayName": "卧室",
+    "environmentCategory": "indoor",
+    "note": "温馨卧室",
+    "prompt": [
+      "intimate bedroom",
+      "cozy atmosphere"
+    ],
+    "negative": []
+  },
+  "bathroom": {
+    "displayName": "浴室",
+    "environmentCategory": "indoor",
+    "note": "浴室氛围",
+    "prompt": [
+      "bathroom setting",
+      "steam atmosphere"
+    ],
+    "negative": []
+  },
+  "hotel_room": {
+    "displayName": "酒店房间",
+    "environmentCategory": "indoor",
+    "note": "酒店房间",
+    "prompt": [
+      "hotel bedroom",
+      "luxury hotel room"
+    ],
+    "negative": []
+  },
+  "hotel_lobby": {
+    "displayName": "酒店大堂",
+    "environmentCategory": "indoor",
+    "note": "酒店大堂",
+    "prompt": [
+      "luxury hotel lobby",
+      "elegant interior"
+    ],
+    "negative": []
+  },
+  "living_room": {
+    "displayName": "客厅",
+    "environmentCategory": "indoor",
+    "note": "温馨客厅",
+    "prompt": [
+      "living room",
+      "cozy home atmosphere"
+    ],
+    "negative": []
+  },
+  "sofa": {
+    "displayName": "沙发",
+    "environmentCategory": "indoor",
+    "note": "客厅沙发",
+    "prompt": [
+      "sofa",
+      "comfortable couch"
+    ],
+    "negative": []
+  },
+  "office": {
+    "displayName": "办公室",
+    "environmentCategory": "indoor",
+    "note": "现代办公环境",
+    "prompt": [
+      "modern office",
+      "business atmosphere"
+    ],
+    "negative": []
+  },
+  "karaoke_room": {
+    "displayName": "KTV包厢",
+    "environmentCategory": "indoor",
+    "note": "KTV昏暗包厢",
+    "prompt": [
+      "karaoke private room",
+      "dim colorful lighting"
+    ],
+    "negative": []
+  },
+  "balcony": {
+    "displayName": "阳台",
+    "environmentCategory": "outdoor",
+    "note": "都市阳台",
+    "prompt": [
+      "balcony",
+      "urban view"
+    ],
+    "negative": []
+  },
+  "floor_to_floor_window": {
+    "displayName": "落地窗",
+    "environmentCategory": "indoor",
+    "note": "大落地窗",
+    "prompt": [
+      "floor to ceiling window",
+      "large window with view"
+    ],
+    "negative": []
+  },
+  "rooftop": {
+    "displayName": "天台",
+    "environmentCategory": "outdoor",
+    "note": "城市天台",
+    "prompt": [
+      "rooftop",
+      "city night view"
+    ],
+    "negative": []
+  },
+  "car_interior": {
+    "displayName": "车内",
+    "environmentCategory": "indoor",
+    "note": "车内私密空间",
+    "prompt": [
+      "car interior",
+      "intimate private space"
+    ],
+    "negative": []
+  },
+  "cafe": {
+    "displayName": "咖啡厅",
+    "environmentCategory": "indoor",
+    "note": "文艺咖啡厅",
+    "prompt": [
+      "cozy cafe",
+      "coffee shop atmosphere"
+    ],
+    "negative": []
+  },
+  "restaurant": {
+    "displayName": "餐厅",
+    "environmentCategory": "indoor",
+    "note": "精致餐厅",
+    "prompt": [
+      "elegant restaurant",
+      "fine dining atmosphere"
+    ],
+    "negative": []
+  },
+  "street": {
+    "displayName": "街头",
+    "environmentCategory": "outdoor",
+    "note": "都市街景",
+    "prompt": [
+      "urban street",
+      "city background"
+    ],
+    "negative": []
+  },
+  "park": {
+    "displayName": "公园",
+    "environmentCategory": "outdoor",
+    "note": "户外公园",
+    "prompt": [
+      "park",
+      "nature background"
+    ],
+    "negative": []
+  },
+  "beach": {
+    "displayName": "海滩",
+    "environmentCategory": "outdoor",
+    "note": "海边",
+    "prompt": [
+      "beach",
+      "ocean waves"
+    ],
+    "negative": []
+  },
+  "pool": {
+    "displayName": "泳池",
+    "environmentCategory": "outdoor",
+    "note": "泳池边",
+    "prompt": [
+      "swimming pool",
+      "poolside"
+    ],
+    "negative": []
+  },
+  "spa_room": {
+    "displayName": "SPA房间",
+    "environmentCategory": "indoor",
+    "note": "水疗氛围",
+    "prompt": [
+      "spa room",
+      "relaxing atmosphere"
+    ],
+    "negative": []
+  },
+  "shower": {
+    "displayName": "浴室共浴",
+    "environmentCategory": "indoor",
+    "note": "浴室蒸汽",
+    "prompt": [
+      "bathroom scene",
+      "warm steam"
+    ],
+    "negative": []
+  },
+  "studio": {
+    "displayName": "摄影室",
+    "environmentCategory": "studio",
+    "note": "专业摄影棚",
+    "prompt": [
+      "studio",
+      "professional photography"
+    ],
+    "negative": []
+  }
+}

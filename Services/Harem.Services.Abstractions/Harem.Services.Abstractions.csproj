@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Contracts\Harem.Contracts.Domain\Harem.Contracts.Domain.csproj" />
+        <ProjectReference Include="..\..\Contracts\Harem.Contracts.Dtos\Harem.Contracts.Dtos.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Agents.AI.Abstractions" Version="1.8.0" />
+      <PackageReference Include="Quartz.Extensions.Hosting" Version="3.18.1" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Contracts\Harem.Contracts.Configurations\Harem.Contracts.Configurations.csproj" />
+      <ProjectReference Include="..\..\Contracts\Harem.Contracts.Domain\Harem.Contracts.Domain.csproj" />
+      <ProjectReference Include="..\..\Protocol\Harem.Protocol.ComfyUI\Harem.Protocol.ComfyUI.csproj" />
+      <ProjectReference Include="..\Harem.Services.Abstractions\Harem.Services.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>

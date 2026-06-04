@@ -1,0 +1,39 @@
+{
+  "pov_first_person": {
+    "displayName": "第一人称视角",
+    "note": "自拍视角",
+    "prompt": [
+      "from first person POV view",
+      "direct eye contact",
+      "eye contact with viewer",
+      "looking at viewer",
+      "facing viewer"
+    ],
+    "negative": [
+      "selfie angle",
+      "camera visible",
+      "self-portrait",
+      "holding camera"
+    ]
+  },
+  "pov_third_person": {
+    "displayName": "第三人称视角",
+    "note": "他拍视角",
+    "prompt": [
+      "from camera angle",
+      "professional photography angle",
+      "cinematic framing"
+    ],
+    "negative": [
+      "selfie angle",
+      "first person view",
+      "holding camera"
+    ]
+  },
+  "none": {
+    "displayName": "不指定视角",
+    "note": "不指定视角，使用默认",
+    "prompt": [],
+    "negative": []
+  }
+}

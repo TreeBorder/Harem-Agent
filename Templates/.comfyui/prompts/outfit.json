@@ -1,0 +1,864 @@
+{
+  "athletic_wear": {
+    "displayName": "运动装",
+    "note": "健身运动穿搭",
+    "prompt": [
+      "wearing athletic wear",
+      "sports leggings",
+      "fitness clothing",
+      "casual sporty style"
+    ],
+    "negative": [
+      "formal wear",
+      "revealing outfit"
+    ]
+  },
+  "bikini": {
+    "displayName": "比基尼(content-safe,moderated)",
+    "note": "三点式泳装(content-safe,moderated)",
+    "prompt": [
+      "bikini",
+      "bikini top",
+      "two piece swimsuit",
+      "bikini bottom"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "bikini_top_only": {
+    "displayName": "仅比基尼上装(content-safe,moderated)",
+    "note": "仅穿比基尼上装，下身裸露(content-safe,moderated)",
+    "prompt": [
+      "bikini top only",
+      "topless with bikini",
+      "bikini without bottom"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "bodycon_dress": {
+    "displayName": "包身裙(content-safe,moderated)",
+    "note": "紧身包身裙(content-safe,moderated)",
+    "prompt": [
+      "wearing bodycon dress",
+      "tight fitting dress",
+      "figure hugging",
+      "elegant sexy style"
+    ],
+    "negative": [
+      "loose clothing"
+    ]
+  },
+  "business_suit": {
+    "displayName": "商务西装",
+    "note": "正式职场穿搭",
+    "prompt": [
+      "wearing business suit",
+      "white button-up shirt",
+      "professional attire",
+      "formal office wear"
+    ],
+    "negative": [
+      "casual",
+      "revealing"
+    ]
+  },
+  "casual_tshirt": {
+    "displayName": "休闲T恤",
+    "note": "日常休闲穿搭",
+    "prompt": [
+      "wearing casual t-shirt",
+      "jeans",
+      "casual style",
+      "comfortable clothing"
+    ],
+    "negative": [
+      "revealing clothing",
+      "lingerie visible"
+    ]
+  },
+  "coat": {
+    "displayName": "大衣外套",
+    "note": "秋冬外套",
+    "prompt": [
+      "wearing coat",
+      "long jacket",
+      "autumn winter fashion",
+      "stylish outerwear"
+    ],
+    "negative": [
+      "short clothing",
+      "revealing"
+    ]
+  },
+  "dress": {
+    "displayName": "连衣裙",
+    "note": "优雅日常连衣裙",
+    "prompt": [
+      "wearing casual dress",
+      "simple elegant dress",
+      "knee length",
+      "casual style"
+    ],
+    "negative": [
+      "short mini dress",
+      "revealing"
+    ]
+  },
+  "high_heels_only": {
+    "displayName": "高跟鞋与内衣",
+    "note": "仅穿高跟鞋和内衣",
+    "prompt": [
+      "high heels and underwear",
+      "heels and lingerie",
+      "naked except heels",
+      "stiletto heels only"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "home_loungewear": {
+    "displayName": "居家服",
+    "note": "舒适家居服装",
+    "prompt": [
+      "wearing comfortable loungewear",
+      "soft home clothing",
+      "relaxed fit",
+      "cozy atmosphere"
+    ],
+    "negative": [
+      "work clothes",
+      "revealing outfit"
+    ]
+  },
+  "hoodie": {
+    "displayName": "连帽衫",
+    "note": "休闲连帽衫",
+    "prompt": [
+      "wearing hoodie",
+      "casual streetwear",
+      "comfortable sweatshirt"
+    ],
+    "negative": [
+      "formal",
+      "revealing"
+    ]
+  },
+  "leather_jacket": {
+    "displayName": "皮衣",
+    "note": "皮衣搭配",
+    "prompt": [
+      "wearing leather jacket",
+      "biker style",
+      "edgy sexy look",
+      "leather pants"
+    ],
+    "negative": [
+      "casual t-shirt"
+    ]
+  },
+  "negligee": {
+    "displayName": "睡裙",
+    "note": "轻薄透明睡裙",
+    "prompt": [
+      "negligee",
+      "silk nightgown",
+      "see through nightgown",
+      "sheer nightie"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "nurse": {
+    "displayName": "护士制服(content-safe,moderated)",
+    "note": "医院护士服，白色护士服+护士帽(content-safe,moderated)",
+    "prompt": [
+      "nurse uniform",
+      "white nurse dress",
+      "nursing uniform",
+      "nurse cap",
+      "medical uniform",
+      "hospital nurse attire"
+    ],
+    "negative": [
+      "child",
+      "teen",
+      "casual clothing"
+    ]
+  },
+  "nylon": {
+    "displayName": "尼龙紧身衣(content-safe,moderated)",
+    "note": "光滑尼龙材质(content-safe,moderated)",
+    "prompt": [
+      "nylon stockings",
+      "pantyhose",
+      "sheer nylon",
+      "tight nylon"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "onepiece_bodysuit": {
+    "displayName": "连体紧身衣(content-safe,moderated)",
+    "note": "连体紧身衣(content-safe,moderated)",
+    "prompt": [
+      "bodysuit",
+      "one piece suit",
+      "tight bodysuit",
+      "catsuit"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "sweater": {
+    "displayName": "毛衣",
+    "note": "秋冬毛衣穿搭",
+    "prompt": [
+      "wearing cozy sweater",
+      "casual knitwear",
+      "comfortable style"
+    ],
+    "negative": [
+      "revealing",
+      "summer clothing"
+    ]
+  },
+  "tank_top": {
+    "displayName": "背心",
+    "note": "宽松背心",
+    "prompt": [
+      "tank top",
+      "sleeveless top",
+      "muscle shirt",
+      "tight tank"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "teddy_lingerie": {
+    "displayName": "连体内衣",
+    "note": "性感连体衣",
+    "prompt": [
+      "wearing teddy lingerie",
+      "sexy one piece undergarment",
+      "intimate sleepwear"
+    ],
+    "negative": [
+      "casual clothing"
+    ]
+  },
+  "thong": {
+    "displayName": "丁字裤",
+    "note": "minimal覆盖",
+    "prompt": [
+      "thong",
+      "thong underwear",
+      "g-string",
+      "minimal coverage"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "topless": {
+    "displayName": "上半身裸露",
+    "note": "上半身赤裸",
+    "prompt": [
+      "topless",
+      "bare chest",
+      "nude female torso"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "towelwrap": {
+    "displayName": "浴巾裹身",
+    "note": "半裹浴巾",
+    "prompt": [
+      "towel wrap",
+      "wrapped in towel",
+      "towel partially wrapped",
+      "loose towel"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "underwear_only": {
+    "displayName": "仅穿内衣",
+    "note": "仅着内衣内裤",
+    "prompt": [
+      "underwear only",
+      "in underwear",
+      "panties and bra",
+      "intimate apparel only"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "uniform_suggestive": {
+    "displayName": "服务员制服",
+    "note": "餐厅服务员制服",
+    "prompt": [
+      "waitress uniform",
+      "restaurant uniform",
+      "black vest",
+      "white button-up shirt",
+      "server attire",
+      "cafe uniform"
+    ],
+    "negative": [
+      "child",
+      "teen",
+      "casual clothing"
+    ]
+  },
+  "wet_tshirt": {
+    "displayName": "湿透T恤",
+    "note": "湿身T恤",
+    "prompt": [
+      "wet tshirt",
+      "soaked shirt",
+      "wet white shirt",
+      "drenched clothing"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "white_shirt_solo": {
+    "displayName": "白衬衫",
+    "note": "宽松白衬衫只扣两颗，下身没穿",
+    "prompt": [
+      "loose white shirt",
+      "shirt only",
+      "no pants",
+      "two buttons undone",
+      "barefoot",
+      "seductive attire"
+    ],
+    "negative": [
+      "fully clothed",
+      "wearing pants"
+    ]
+  },
+  "backless": {
+    "displayName": "露背装(content-safe,moderated)",
+    "note": "大面积露背(content-safe,moderated)",
+    "prompt": [
+      "backless dress",
+      "bare back",
+      "exposed back",
+      "low back dress"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "bodystocking": {
+    "displayName": "连体紧身衣(content-safe,moderated)",
+    "note": "贴身网眼紧身衣(content-safe,moderated)",
+    "prompt": [
+      "bodystocking",
+      "fishnet bodystocking",
+      "tight body suit",
+      "sheer bodysuit"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "bra": {
+    "displayName": "只穿胸罩(content-safe,moderated)",
+    "note": "仅穿内衣上装(content-safe,moderated)",
+    "prompt": [
+      "bra only",
+      "wearing bra",
+      "bralette",
+      "lingerie top"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "bra_panties": {
+    "displayName": "文胸内裤(content-safe,moderated)",
+    "note": "基础内衣组合(content-safe,moderated)",
+    "prompt": [
+      "wearing bra and panties",
+      "lingerie set",
+      "intimate apparel"
+    ],
+    "negative": [
+      "fully naked",
+      "clothing"
+    ]
+  },
+  "leather_ensemble": {
+    "displayName": "皮革套装(content-safe,moderated)",
+    "note": "性感皮革服饰(content-safe,moderated)",
+    "prompt": [
+      "leather outfit",
+      "leather lingerie",
+      "leather corset",
+      "leather and lace"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "bustier": {
+    "displayName": "紧身胸衣(content-safe,moderated)",
+    "note": "塑身紧身胸衣(content-safe,moderated)",
+    "prompt": [
+      "bustier",
+      "corset top",
+      "tight bustier",
+      "curve hugging corset"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "cleavage": {
+    "displayName": "低胸装(content-safe,moderated)",
+    "note": "深V暴露乳沟(content-safe,moderated)",
+    "prompt": [
+      "cleavage",
+      "low cut dress",
+      "deep v neck",
+      "plunging neckline"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "corset": {
+    "displayName": "紧身胸衣(content-safe,moderated)",
+    "note": "性感束身衣(content-safe,moderated)",
+    "prompt": [
+      "wearing corset",
+      "tight fitting lingerie",
+      "shapewear",
+      "sexy intimate style"
+    ],
+    "negative": [
+      "casual clothing"
+    ]
+  },
+  "corset_dress": {
+    "displayName": "紧身胸衣连衣裙(content-safe,moderated)",
+    "note": "紧身塑形连衣裙(content-safe,moderated)",
+    "prompt": [
+      "corset dress",
+      "tight fitting dress",
+      "curve hugging dress",
+      "hourglass figure dress"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "crop_top_short": {
+    "displayName": "短款上衣(content-safe,moderated)",
+    "note": "露脐短上衣(content-safe,moderated)",
+    "prompt": [
+      "crop top",
+      "bare midriff",
+      "short cropped shirt",
+      "midriff exposed"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "fishnet": {
+    "displayName": "渔网衣(content-safe,moderated)",
+    "note": "渔网材质服装(content-safe,moderated)",
+    "prompt": [
+      "wearing fishnet clothing",
+      "fishnet top",
+      "sexy intimate apparel"
+    ],
+    "negative": [
+      "opaque clothing"
+    ]
+  },
+  "garter_belt": {
+    "displayName": "吊袜带+内衣(content-safe,moderated)",
+    "note": "精致内衣组合(content-safe,moderated)",
+    "prompt": [
+      "wearing garter belt with lingerie",
+      "stockings with garter",
+      "sexy intimate apparel"
+    ],
+    "negative": [
+      "casual",
+      "fully naked"
+    ]
+  },
+  "kimono_open": {
+    "displayName": "和服敞开(content-safe,moderated)",
+    "note": "和服半敞露身(content-safe,moderated)",
+    "prompt": [
+      "kimono open",
+      "open kimono",
+      "bare under kimono",
+      "traditional robe open"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "latex": {
+    "displayName": "乳胶紧身衣(content-safe,moderated)",
+    "note": "乳胶材质紧身衣(content-safe,moderated)",
+    "prompt": [
+      "latex suit",
+      "latex catsuit",
+      "tight latex",
+      "latex body suit"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "lingerie": {
+    "displayName": "蕾丝内衣(content-safe,moderated)",
+    "note": "精致蕾丝内衣套装(content-safe,moderated)",
+    "prompt": [
+      "lace lingerie",
+      "black lace lingerie",
+      "sheer lace bra",
+      "babydoll lingerie"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "lingerie_silk": {
+    "displayName": "丝绸内衣(content-safe,moderated)",
+    "note": "丝绸材质内衣(content-safe,moderated)",
+    "prompt": [
+      "silk lingerie",
+      "silk underwear",
+      "satin bra",
+      "silk slip"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "micro_bikini": {
+    "displayName": "微型比基尼(content-safe,moderated)",
+    "note": "极小比基尼(content-safe,moderated)",
+    "prompt": [
+      "micro bikini",
+      "tiny bikini",
+      "minimal coverage bikini",
+      "string bikini"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "mini_skirt": {
+    "displayName": "迷你裙(content-safe,moderated)",
+    "note": "短裙搭配上衣(content-safe,moderated)",
+    "prompt": [
+      "wearing mini skirt",
+      "crop top",
+      "casual sexy style",
+      "short skirt"
+    ],
+    "negative": [
+      "long skirt",
+      "formal wear"
+    ]
+  },
+  "miniskirt": {
+    "displayName": "迷你裙(content-safe,moderated)",
+    "note": "超短裙(content-safe,moderated)",
+    "prompt": [
+      "miniskirt",
+      "mini skirt",
+      "micro skirt",
+      "ultra short skirt"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "nipple_pasties": {
+    "displayName": "乳头贴(content-safe,moderated)",
+    "note": "仅乳头遮挡贴(content-safe,moderated)",
+    "prompt": [
+      "nipple pasties",
+      "pasties only",
+      "body covered with pasties"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "nude": {
+    "displayName": "裸体(content-safe,moderated)",
+    "note": "全裸，躺卧姿势(content-safe,moderated)",
+    "prompt": [
+      "nude",
+      "naked",
+      "fully exposed",
+      "lying on bed"
+    ],
+    "negative": [
+      "wearing clothes",
+      "lingerie",
+      "partially clothed"
+    ]
+  },
+  "pantyhose_ripped": {
+    "displayName": "破损丝袜(content-safe,moderated)",
+    "note": "撕破的丝袜(content-safe,moderated)",
+    "prompt": [
+      "torn pantyhose",
+      "ripped stockings",
+      "run in stockings",
+      "damaged hosiery"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "rope_bondage": {
+    "displayName": "绳艺捆绑(content-safe,moderated)",
+    "note": "艺术绳绑(content-safe,moderated)",
+    "prompt": [
+      "rope bondage",
+      "kinbaku",
+      "shibari",
+      "rope harness"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "see_through_dress": {
+    "displayName": "镂空连衣裙(content-safe,moderated)",
+    "note": "大面积镂空连衣裙(content-safe,moderated)",
+    "prompt": [
+      "cutout dress",
+      "dress with cutouts",
+      "bare skin dress",
+      "strategically cut dress"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "sexy_dress": {
+    "displayName": "性感连衣裙(content-safe,moderated)",
+    "note": "深V紧身连衣裙(content-safe,moderated)",
+    "prompt": [
+      "wearing sexy tight dress",
+      "deep v-neckline",
+      "body-hugging dress",
+      "alluring evening wear"
+    ],
+    "negative": [
+      "casual clothing",
+      "daytime wear"
+    ]
+  },
+  "sheer_blouse": {
+    "displayName": "透视衬衫(content-safe,moderated)",
+    "note": "薄纱透视衬衫(content-safe,moderated)",
+    "prompt": [
+      "wearing sheer blouse",
+      "semi-transparent fabric",
+      "see-through shirt",
+      "alluring office style"
+    ],
+    "negative": [
+      "opaque clothing",
+      "casual t-shirt"
+    ]
+  },
+  "sheer_dress": {
+    "displayName": "透视连衣裙(content-safe,moderated)",
+    "note": "半透明连衣裙(content-safe,moderated)",
+    "prompt": [
+      "sheer dress",
+      "see through dress",
+      "transparent dress",
+      "semi transparent gown"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "sheer_top": {
+    "displayName": "透视上衣(content-safe,moderated)",
+    "note": "透明薄纱上衣(content-safe,moderated)",
+    "prompt": [
+      "sheer top",
+      "see through clothing",
+      "transparent blouse",
+      "see through fabric"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "short_shorts": {
+    "displayName": "热裤(content-safe,moderated)",
+    "note": "超短短裤(content-safe,moderated)",
+    "prompt": [
+      "short shorts",
+      "hot pants",
+      "tiny shorts",
+      "micro shorts"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "shorts_leggings": {
+    "displayName": "热裤+背心(content-safe,moderated)",
+    "note": "修身短裤组合(content-safe,moderated)",
+    "prompt": [
+      "wearing tight shorts",
+      "tank top",
+      "casual intimate wear",
+      "fitted clothing"
+    ],
+    "negative": [
+      "loose clothing",
+      "formal"
+    ]
+  },
+  "shower_wet": {
+    "displayName": "沐浴湿身(content-safe,moderated)",
+    "note": "湿身沐浴状态(content-safe,moderated)",
+    "prompt": [
+      "wet body",
+      "after shower",
+      "wet skin",
+      "dripping wet"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "silk_pajamas": {
+    "displayName": "丝绸睡衣(content-safe,moderated)",
+    "note": "轻薄丝绸睡衣，隐约透视(content-safe,moderated)",
+    "prompt": [
+      "wearing silk pajamas",
+      "thin silk fabric",
+      "sheer nightwear",
+      "elegant sleepwear"
+    ],
+    "negative": [
+      "daytime clothing",
+      "formal wear"
+    ]
+  },
+  "stockings": {
+    "displayName": "吊带丝袜(content-safe,moderated)",
+    "note": "吊带袜与内衣(content-safe,moderated)",
+    "prompt": [
+      "stockings",
+      "garter belt",
+      "stockings and lingerie",
+      "thigh high stockings"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "strapless_dress": {
+    "displayName": "无肩带连衣裙(content-safe,moderated)",
+    "note": "裸露肩颈线条(content-safe,moderated)",
+    "prompt": [
+      "strapless dress",
+      "off shoulder dress",
+      "bare shoulders dress",
+      "cleavage exposing dress"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  },
+  "swimsuit": {
+    "displayName": "泳装(content-safe,moderated)",
+    "note": "性感泳衣(content-safe,moderated)",
+    "prompt": [
+      "wearing swimsuit",
+      "bikini",
+      "beachwear",
+      "summer style"
+    ],
+    "negative": [
+      "winter clothing"
+    ]
+  },
+  "swimsuit_wet": {
+    "displayName": "湿身泳装(content-safe,moderated)",
+    "note": "湿透的泳装(content-safe,moderated)",
+    "prompt": [
+      "wet swimsuit",
+      "soaked bikini",
+      "wet one piece",
+      "drenched swimwear"
+    ],
+    "negative": [
+      "child",
+      "teen"
+    ]
+  }
+}

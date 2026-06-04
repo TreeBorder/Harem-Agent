@@ -1,0 +1,18 @@
+{
+  "Heartbeat": {
+    "Enabled": true,
+    "MinMinutes": 45,
+    "MaxMinutes": 75,
+    "CooldownMinutes": 30,
+    "NormalIncreaseMin": 1,
+    "NormalIncreaseMax": 7,
+    "SpecialIncreaseMin": 5,
+    "SpecialIncreaseMax": 15,
+    "SpecialTriggerThreshold": 80,
+    "TriggerPenalty": 50,
+    "LongingCap": 100,
+    "LevelThresholds": [15, 30, 50, 70],
+    "LevelFluctuationChance": 20,
+    "MaxLogEntries": 100
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "3": {
+    "_meta": {
+      "title": "K采样器"
+    },
+    "inputs": {
+      "cfg": 6,
+      "seed": "{{SEED}}",
+      "model": [
+        "4",
+        0
+      ],
+      "steps": 25,
+      "denoise": 1,
+      "negative": [
+        "7",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "scheduler": "karras",
+      "latent_image": [
+        "5",
+        0
+      ],
+      "sampler_name": "dpmpp_2m"
+    },
+    "class_type": "KSampler"
+  },
+  "4": {
+    "_meta": {
+      "title": "Checkpoint加载器（简易）"
+    },
+    "inputs": {
+      "ckpt_name": "pornmaster_proSDXLV8.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple"
+  },
+  "5": {
+    "_meta": {
+      "title": "空Latent图像"
+    },
+    "inputs": {
+      "width": "{{WIDTH}}",
+      "height": "{{HEIGHT}}",
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage"
+  },
+  "6": {
+    "_meta": {
+      "title": "CLIP文本编码"
+    },
+    "inputs": {
+      "clip": [
+        "4",
+        1
+      ],
+      "text": "{{PROMPT}}"
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "7": {
+    "_meta": {
+      "title": "CLIP文本编码"
+    },
+    "inputs": {
+      "clip": [
+        "4",
+        1
+      ],
+      "text": "{{NEGATIVE_PROMPT}}"
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "8": {
+    "_meta": {
+      "title": "VAE解码"
+    },
+    "inputs": {
+      "vae": [
+        "4",
+        2
+      ],
+      "samples": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "VAEDecode"
+  },
+  "9": {
+    "_meta": {
+      "title": "保存图像"
+    },
+    "inputs": {
+      "images": [
+        "35",
+        0
+      ],
+      "filename_prefix": "{{ROLE_NAME}}"
+    },
+    "class_type": "SaveImage"
+  },
+  "35": {
+    "_meta": {
+      "title": "ReActor  Fast Face Swap"
+    },
+    "inputs": {
+      "enabled": true,
+      "swap_model": "inswapper_128.onnx",
+      "input_image": [
+        "38",
+        0
+      ],
+      "source_image": [
+        "41",
+        0
+      ],
+      "facedetection": "retinaface_resnet50",
+      "codeformer_weight": 0.5,
+      "console_log_level": 1,
+      "input_faces_index": "0",
+      "face_restore_model": "codeformer-v0.1.0.pth",
+      "source_faces_index": "0",
+      "detect_gender_input": "female",
+      "detect_gender_source": "female",
+      "face_restore_visibility": 1
+    },
+    "class_type": "ReActorFaceSwap"
+  },
+  "38": {
+    "_meta": {
+      "title": "FaceDetailer"
+    },
+    "inputs": {
+      "cfg": 6,
+      "vae": [
+        "4",
+        2
+      ],
+      "clip": [
+        "4",
+        1
+      ],
+      "seed": "{{SEED}}",
+      "cycle": 1,
+      "image": [
+        "8",
+        0
+      ],
+      "model": [
+        "4",
+        0
+      ],
+      "steps": 20,
+      "denoise": 0.5,
+      "feather": 5,
+      "max_size": 1024,
+      "negative": [
+        "7",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "wildcard": "",
+      "drop_size": 10,
+      "scheduler": "karras",
+      "guide_size": 512,
+      "noise_mask": true,
+      "sam_dilation": 0,
+      "sampler_name": "dpmpp_2m",
+      "tiled_decode": false,
+      "tiled_encode": false,
+      "bbox_detector": [
+        "40",
+        0
+      ],
+      "bbox_dilation": 10,
+      "force_inpaint": true,
+      "inpaint_model": false,
+      "sam_threshold": 0.93,
+      "bbox_threshold": 0.5,
+      "guide_size_for": true,
+      "bbox_crop_factor": 3,
+      "noise_mask_feather": 20,
+      "sam_bbox_expansion": 0,
+      "sam_detection_hint": "center-1",
+      "sam_mask_hint_threshold": 0.7,
+      "sam_mask_hint_use_negative": "False"
+    },
+    "class_type": "FaceDetailer"
+  },
+  "40": {
+    "_meta": {
+      "title": "UltralyticsDetectorProvider"
+    },
+    "inputs": {
+      "model_name": "bbox/face_yolov8m.pt"
+    },
+    "class_type": "UltralyticsDetectorProvider"
+  },
+  "41": {
+    "_meta": {
+      "title": "加载图像"
+    },
+    "inputs": {
+      "image": "{{ROLE_NAME}}.jpg"
+    },
+    "class_type": "LoadImage"
+  }
+}
